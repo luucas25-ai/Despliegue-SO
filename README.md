@@ -5,4 +5,4 @@ Hecho por Francisco, Roberto y Lucas
 
 
 
-![Asignación de imagen ISO](C:\Users\Usuario\Desktop\Despliege\Despliegue-SO\img\Asignacion de Imagen ISO.png)
+![Asignación de imagen ISO](C:\Users\Usuario\Desktop\Despliege\Despliegue-SO\img\Asignacion-de-Imagen-ISO.png)
