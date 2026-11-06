@@ -5,4 +5,4 @@ Hecho por Francisco, Roberto y Lucas
 
 
 
-![Asignación de imagen ISO](img\Asignacion-de-Imagen-ISO.png)
+![Asignación de imagen ISO](img/Asignacion-de-Imagen-ISO.png)
