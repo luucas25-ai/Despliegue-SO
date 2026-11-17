@@ -26,6 +26,7 @@ Realizado por **Francisco**, **Roberto** y **Lucas**
 - [Optimización e integración (Guest Additions)](#4-optimización-e-integración-guest-additions)
 - [Carpeta compartida](#5-carpeta-compartida)
 - [Creación de un segundo disco VDI](#6-creación-de-un-segundo-disco-vdi)
+- [Actualización del sistema](#7-actualización-del-sistema)
 - [Comandos utilizados](#-comandos-utilizados)
 - [Conclusiones](#-conclusiones)
 
@@ -41,6 +42,7 @@ El objetivo de esta práctica es **desplegar un sistema operativo Ubuntu Desktop
 - Optimizar la VM instalando las **Guest Additions** (portapapeles compartido, pantalla dinámica…).
 - Configurar una **carpeta compartida** entre el equipo real (host) y la VM (invitado).
 - Añadir y particionar un **segundo disco duro virtual**.
+- Actualizar el sistema operativo y revisar los paquetes disponibles.
 
 ---
 
@@ -317,6 +319,57 @@ sudo parted /dev/<disco>
   <img src="img/Creacion%20de%20particion%20de%20disco.png" alt="Creación de particiones" width="600">
 </p>
 
+### Formateo y comprobación del segundo disco
+
+Una vez creada la partición útil para compartir datos, la formateamos en FAT32 y comprobamos el resultado con `lsblk -f`:
+
+```bash
+sudo mkfs.vfat -F 32 /dev/sdb
+lsblk -f /dev/sdb
+```
+
+<p align="center">
+  <img src="img/Formateo%20de%20particion%20en%20fat32.png" alt="Formateo en FAT32" width="600">
+</p>
+
+<p align="center">
+  <img src="img/Muestra%20de%20discos%20junto%20con%20sus%20formatos.png" alt="Discos y formatos" width="700">
+</p>
+
+---
+
+## 7. Actualización del sistema
+
+Actualizamos la lista de paquetes.
+
+```bash
+sudo apt update
+```
+
+<p align="center">
+  <img src="img/Actualiza%20la%20lista%20de%20paquetes.png" alt="Lista de paquetes" width="700">
+</p>
+
+Vemos los paquetes con una versión más nueva.
+
+```bash
+apt list --upgradable
+```
+
+<p align="center">
+  <img src="img/muestra%20de%20paquetes%20instalados%20con%20version%20mas%20nueva%20disponible.png" alt="Paquetes actualizables" width="700">
+</p>
+
+Instalamos las actualizaciones.
+
+```bash
+sudo apt upgrade
+```
+
+<p align="center">
+  <img src="img/instalacion%20de%20las%20actualizaciones.png" alt="Instalación de actualizaciones" width="700">
+</p>
+
 ---
 
 ## 🧾 Comandos utilizados
@@ -329,6 +382,9 @@ sudo parted /dev/<disco>
 | `sudo usermod -aG vboxsf $USER` | Añade el usuario al grupo de carpetas compartidas |
 | `lsblk` | Lista los discos y particiones del sistema |
 | `sudo parted /dev/<disco>` | Abre la herramienta de particionado sobre un disco |
+| `sudo mkfs.vfat -F 32 /dev/sdb` | Formatea la partición en FAT32 |
+| `apt list --upgradable` | Muestra paquetes con versiones disponibles más nuevas |
+| `sudo apt upgrade` | Instala las actualizaciones del sistema |
 
 ---
 
@@ -341,6 +397,7 @@ Con esta práctica hemos aprendido a:
 - 💿 **Instalar Ubuntu desde cero**, con usuario, contraseña segura y disco cifrado.
 - ⚙️ **Integrar la VM con el host** gracias a las Guest Additions (portapapeles, pantalla dinámica, carpetas compartidas).
 - 🗂️ **Añadir y particionar discos** desde la terminal con `lsblk` y `parted`.
+- 🔄 **Mantener el sistema actualizado** revisando y aplicando paquetes nuevos de forma segura.
 
 ---
 
