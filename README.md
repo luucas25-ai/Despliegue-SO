@@ -370,6 +370,11 @@ sudo apt upgrade
   <img src="img/instalacion%20de%20las%20actualizaciones.png" alt="Instalación de actualizaciones" width="700">
 </p>
 
+##  Error al ejecutar mkfs.ext4 y apt
+<p align="center">
+  <img src="img/error-mkfs-apt.png" alt="Error al ejecutar mkfs.ext4 y apt" width="700">
+</p>
+
 ---
 
 ## 🧾 Comandos utilizados
